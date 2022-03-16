@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 #include "conversion.h"
 
 
@@ -15,9 +14,12 @@ void decimalToBinary(unsigned int number){
     printf("%u", number_binary);
 }
     
-unsigned long long ten_power(int exponent){
+unsigned long ten_power(int exponent){
     
-    /* funkcja podnosząca 10 do danej potęgi*/
+    /* funkcja podnosząca 10 do danej potęgi.
+    musiałem zdefiniować własną funkcję, ponieważ fcja pow(a,b) z biblioteki math.h
+    operuje na float i liczy potęgę ze wzoru exp(log(x)*y), co skutkowwało obcinaniem 
+    np 9999.999999 do 9999 przy konwersji na int   */
     
     unsigned int result = 1;
     while(exponent > 0){

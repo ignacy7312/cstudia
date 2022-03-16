@@ -20,7 +20,6 @@ int main(){
     printf("\n%d", sizeof(short));
     printf("\n%d", sizeof(unsigned long long));
     printf("\n%d", sizeof(long long));
-    printf("\n%d", sizeof(void));
     printf("\n%d", sizeof(bool));
 	
 

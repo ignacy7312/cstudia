@@ -26,7 +26,7 @@ int main(void){
                 printf("\nq = %u",q);
             }
         tocjent = (p - 1)*(q - 1);
-        e = 1 + rand() % tocjent;
+        e = 1 + rand() % tocjent; //na wikipedii było, że e należy do przedziału od 1 do tocjentu
         gcd1 = gcd(e, p - 1);
         gcd2 = gcd(e, q - 1);
         if(gcd1 == 1 && gcd2 == 1){

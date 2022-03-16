@@ -18,5 +18,15 @@ int main(void){
     z = 7;
     zeros(x,y,z);
 
+    x = 1;
+    y = 3;
+    z = 2;
+    zeros(x,y,z);
+
+    x = 1;
+    y = 0;
+    z = -4;
+    zeros(x,y,z);
+    
     return 0;
 }
