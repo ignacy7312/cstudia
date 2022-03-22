@@ -1,6 +1,6 @@
 #include <iostream>
-
 #include "calculator.h"
+
 
 int main() {
 	float x, y, result;
@@ -15,7 +15,7 @@ int main() {
 		<< "3 - division" << std::endl;
 	unsigned int operationValue;
 	std::cin >> operationValue;
-	Operation operation = static_cast<Operation>(operationValue);
+	Operation operation = static_cast<Operation>(operationValue); //konwersja operation value na wartosc z enum
 	result = calculate(operation, x, y);
 	std::cout << "Operation result equals: " << result << std::endl;
 	return EXIT_SUCCESS;

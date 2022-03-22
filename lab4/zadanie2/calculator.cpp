@@ -12,17 +12,11 @@ namespace {
 } // anonymous namespace
 
 // Place your definitions here
-float add(float x, float y){
-	return x + y;
-}
+float add(float x, float y){ return x + y; }
 
-float subtract(float x, float y){
-	return x - y;
-}
+float subtract(float x, float y){ return x - y; }
 
-float multiply(float x, float y){
-	return x * y;
-}
+float multiply(float x, float y){ return x * y; }
 
 float divide(float x, float y){
 	if(y == 0)
@@ -34,7 +28,7 @@ float divide(float x, float y){
 
 float calculate(Operation operation, float x, float y){ 	
 	switch(operation){
-		case Operation::ADD:
+		case Operation::ADD: //odwolanie sie do wartosci z enum class
 			return add(x,y);
 		
 		case Operation::SUBTRACT:
@@ -50,3 +44,4 @@ float calculate(Operation operation, float x, float y){
 			quitWithError();
 	}
 }
+

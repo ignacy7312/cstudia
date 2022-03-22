@@ -7,7 +7,7 @@ enum class Operation : unsigned int {
 	SUBTRACT,
 	MULTIPLY,
 	DIVIDE,
-	INVALID = std::numeric_limits<unsigned int>::max()
+	INVALID = std::numeric_limits<unsigned int>::max() //invalid - kazda liczba wieksza od 3 
 };
 
 float add(float x, float y);

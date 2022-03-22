@@ -4,7 +4,7 @@
 
 int main() {
 	
-	float storev1, storev2;
+	float storev1, storev2 = 0;
 
 	for(;;){
 		float x, y, result;
@@ -13,7 +13,7 @@ int main() {
 		std::cout << std::endl << "y: ";
 		std::cin >> y;
 		
-		if(storev1 == x && storev2 == y)
+		if((storev1 == x && storev2 == y) || (storev1 == y && storev2 == x))
 			return EXIT_SUCCESS;
 
 		storev1 = x;
