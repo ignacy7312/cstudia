@@ -28,8 +28,9 @@ float divide(float x, float y){
 
 float calculate(Operation operation, float x, float y){ 	
 	switch(operation){
+		//case nie muszą się kończyć breakiem - default ani inne przypadki sie nie wywolaja bo funkcja od razu zwraca wartosc
 		case Operation::ADD: //odwolanie sie do wartosci z enum class
-			return add(x,y);
+			return add(x,y);				
 		
 		case Operation::SUBTRACT:
 			return subtract(x,y);
