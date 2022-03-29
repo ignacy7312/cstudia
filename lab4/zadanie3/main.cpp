@@ -4,17 +4,17 @@
 
 int main() {
 	
-	float storev1, storev2 = 0;
-
-	for(;;){
+	bool powtorka = false;
+	int storev1, storev2 = 0;
+	
+	while(powtorka == false){
 		float x, y, result;
 		std::cout << "Type two numbers." << std::endl << "x: ";
 		std::cin >> x;
 		std::cout << std::endl << "y: ";
 		std::cin >> y;
 		
-		if((storev1 == x && storev2 == y) || (storev1 == y && storev2 == x))
-			return EXIT_SUCCESS;
+		powtorka = (storev1 == x && storev2 == y);
 
 		storev1 = x;
 		storev2 = y;

@@ -2,7 +2,7 @@
 #include <string.h>
 
 
-const int WOJTYLA = 2137;
+const int ABC = 123;
 
 void drukuj(int a) { printf("\n hehe: %d", a); }
 

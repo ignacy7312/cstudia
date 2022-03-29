@@ -3,7 +3,9 @@
 
 int main(void){
 
-    for(int i = 1; i <= 10; i++)
-        std::cout << fibonacci(i);
+    int x = fibonacci(5);
+
+    std::cout << x;
+
     return 0;
 }

@@ -48,6 +48,20 @@
         "xstring": "cpp",
         "xtr1common": "cpp",
         "xutility": "cpp",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "chrono": "cpp",
+        "algorithm": "cpp",
+        "charconv": "cpp",
+        "format": "cpp",
+        "forward_list": "cpp",
+        "locale": "cpp",
+        "map": "cpp",
+        "optional": "cpp",
+        "ratio": "cpp",
+        "vector": "cpp",
+        "xlocbuf": "cpp",
+        "xlocmes": "cpp",
+        "xtree": "cpp",
+        "bitset": "cpp"
     }
 }
