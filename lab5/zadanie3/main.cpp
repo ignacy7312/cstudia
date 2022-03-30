@@ -4,22 +4,25 @@
 
 int main(void){
     
-    
+    int liczba1 = 232423169;
+    int liczba2 = 1235555344;
+    int rgcd,igcd;
+
+
     auto begin = std::chrono::high_resolution_clock::now();
-    std::cout << sizeof(begin) << std::endl;
-    std::cout << "liczby: " << 23242316 << " oraz " << 863 << std::endl;
-    std::cout << iterGcd(23242316,863) << '\n';
+    igcd = iterGcd(liczba1,liczba2);
     auto finish = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(finish - begin).count();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(finish - begin).count(); //rzutowanie różnicy na milisekundy 
+    std::cout << "NWD liczb: " << liczba1 << " oraz " << liczba2 << " to: " << igcd << std::endl;
     std::cout << "Zajelo iteracyjnie " << duration << "ms." << std::endl;
 
 
-    auto begin2 = std::chrono::high_resolution_clock::now();
-    std::cout << "liczby: " << 23242316 << " oraz " << 863 << std::endl;
-    std::cout << recurGcd(23242316,863) << '\n';
-    auto finish2 = std::chrono::high_resolution_clock::now();
-    auto duration2 = std::chrono::duration_cast<std::chrono::milliseconds>(finish2 - begin2).count();
-    std::cout << "Zajelo rekurencyjnie " << duration2 << "ms." << std::endl;
+    begin = std::chrono::high_resolution_clock::now();
+    rgcd = recurGcd(liczba1,liczba2);
+    finish = std::chrono::high_resolution_clock::now();
+    duration = std::chrono::duration_cast<std::chrono::milliseconds>(finish - begin).count(); //rzutowanie różnicy na milisekundy 
+    std::cout << "NWD liczb: " << liczba1 << " oraz " << liczba2 << " to: " << rgcd << std::endl;
+    std::cout << "Zajelo rekurencyjnie " << duration << "ms." << std::endl;
 
     return 0;
 }

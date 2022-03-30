@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <bitset>
+#include <limits>
 
 int main(void){
 
@@ -20,24 +21,24 @@ int main(void){
 
     printf("liczba!! %+.5f",liczba3);
 
-    enum Ocena : unsigned int {
+    enum class Ocena : unsigned int {
         A,
         B,
         C,
         D,
         E,
         F,
-        INVALID
+        INVALID = std::numeric_limits<unsigned int>::max()
     };  
     
-    unsigned int ocenaw;
+    Ocena ocenaw;
     std::cout << "Podaj ocene: \n";
     scanf("%d", &ocenaw);
-    Ocena (ocenaw); //= static_cast<Ocena>(ocenaw); 
-    std::cout << "Twoja ocena to: \n" << ocenaw;
+    //Ocena (ocenaw); //= static_cast<Ocena>(ocenaw); 
+    //std::cout << "Twoja ocena to: \n" << Ocena::ocenaw;
 
-    switch(Ocena::ocenaw ){
-        case ocenaw::F:
+    switch(ocenaw){
+        case Ocena::F:
             std::cout << "Nie zdales!";
             break;
         case Ocena::E:

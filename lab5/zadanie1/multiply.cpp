@@ -1,6 +1,6 @@
 #include "multiply.h"
 
-extern "C"{
+extern "C"{ //symbol nie zostanie udekorowany
 	int multiply(int x, int y) {
 		return x * y;
 	}
