@@ -27,19 +27,21 @@ void printsum(float sum){
     std::cout << sum << '\n';
 }
 
-float calculate(float x, float y, char * operations[], unsigned int size){
+float calculate(float x, float y, char * operations[], unsigned int size){ //nie mozna po prostu porownac stringow bo typem
+//zmiennej ktory je przechowuje jest wskaznik
     float sum = 0;
     for(int i = 0; i < size; i++){
         if(std::strncmp(operations[i], "add", strlen(operations[i])) == 0){
             sum += add(x, y);
-        } else if(std::strncmp(operations[i], "sub", strlen(operations[i]))== 0) {
+        } else if(std::strncmp(operations[i], "sub", strlen(operations[i])) == 0) {
             sum += subtract(x, y);
-        } else if(std::strncmp(operations[i], "mul", strlen(operations[i]))== 0) {
+        } else if(std::strncmp(operations[i], "mul", strlen(operations[i])) == 0) {
             sum += multiply(x, y);
-        } else if(std::strncmp(operations[i], "div", strlen(operations[i]))== 0) {
+        } else if(std::strncmp(operations[i], "div", strlen(operations[i])) == 0) {
             sum += divide(x, y);
-        } 
-        printsum(sum);
+        } else
+            continue;
+        //printsum(sum);
     }
     return sum;
 }

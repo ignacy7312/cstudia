@@ -21,5 +21,5 @@ int main(void){
     printTab(tab, sizeof(tab)/sizeof(*tab));
 
     //std::cout << '\n' << sizeof(tab)/sizeof(*tab);
-    return 0;
+    return EXIT_SUCCESS;
 }
