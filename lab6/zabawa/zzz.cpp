@@ -12,6 +12,8 @@ int suma(int a, int b);
 
 int main(void){
 
+    int tab[3] = {1,2,3};
+    std::cout << sizeof(tab) << ' ' << sizeof(*tab) << sizeof(int) << std::endl;
 
     int a = 2;
     int b = 10;

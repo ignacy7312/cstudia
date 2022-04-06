@@ -18,7 +18,7 @@ int main(void){
     
     printTab(tab, sizeof(tab)/sizeof(int));
     reverseTab(tab,sizeof(tab)/sizeof(int));
-    printTab(tab, sizeof(tab)/sizeof(*tab));
+    printTab(tab, sizeof(tab)/sizeof(*tab)); //wskaznik na tab zwraca rozmiar zmiennej wskaznikowej 
 
     //std::cout << '\n' << sizeof(tab)/sizeof(*tab);
     return EXIT_SUCCESS;

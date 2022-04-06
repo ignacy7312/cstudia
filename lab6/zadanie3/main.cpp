@@ -1,7 +1,9 @@
 #include <iostream>
 #include "calculator.h"
 
-int main(int argc, char ** argv){
+//.\main "mul" "mul" "add" "add" "sub" "sub" "div" 
+
+int main(int argc, char ** argv){   //** -wskaźnik na tablice wskaźników na char
 
     if (argc > 1){ //sprawdzenie czy do fcji zostaly przekazane argumenty
         
