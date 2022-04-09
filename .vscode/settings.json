@@ -62,6 +62,7 @@
         "xlocbuf": "cpp",
         "xlocmes": "cpp",
         "xtree": "cpp",
-        "bitset": "cpp"
+        "bitset": "cpp",
+        "fstream": "cpp"
     }
 }
