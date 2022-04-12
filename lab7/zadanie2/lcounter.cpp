@@ -2,12 +2,12 @@
 
 
 int letter_counter(std::string path, char letter){
-//counts how many times the letter occurs in the file
+//counts how many times a letter occurs in a file
     int counter = 0;
     char k;
 
     std::ifstream file;
-    file.open(path);
+    file.open(path, std::ios_base::in);
 
     if(!file.is_open()){
         std::cout << "failed to open" << std::endl;

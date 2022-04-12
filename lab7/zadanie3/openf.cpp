@@ -13,14 +13,14 @@ std::string get20(std::string path){
 
     std::string first20 = "";
     char k;
-        while(first20.length() < 20){
-            file >> k;
+        while((first20.length() < 20) && (file >> k)){ //jezeli eof to sie nie bedzie dalej wczytywac. std::noskipws pozwala wczytywac białe znaki
             first20.push_back(k);
         }
 
-    if (!file.eof() && file.fail())
+    if (!file.eof() && file.fail()){
         std::cout << "Error occured during reading the file" << std::endl;
-
+        exit(EXIT_FAILURE);
+    }
     file.close();
 
     return first20;
@@ -32,8 +32,17 @@ void save_strings(std::string path, std::string words){
 
     std::ofstream file;
     file.open(path, std::ios_base::out | std::ios_base::trunc);
+    if (!file.is_open()){
+        std::cout << "failed to open" << std::endl;
+        exit(EXIT_FAILURE);
+    }
 
-    file << words;
+    file << words; // << std::noskipws
+    
+    if (!file.eof() && file.fail()){
+        std::cout << "Error occured during reading the file" << std::endl;
+        exit(EXIT_FAILURE);
+    }
 
     file.close();
 

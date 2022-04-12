@@ -4,17 +4,16 @@
 
 int main(void){
 
-    FILE * f_ptr = fopen("input.txt", "wt");
+    FILE * f_ptr = fopen("input.txt", "w");
 
     if (f_ptr == NULL){
         printf("Failed to open.");
         exit(EXIT_FAILURE);
     }
     
-    
     char placeholder;
-    printf("Enter max 20 characters. q/Q breaks.");
-    for(int i = 0; i < 20; i++){
+    printf("Enter 20 characters. q/Q breaks\n");
+    for(int i = 0; i <= 20; i++){
         scanf("%c", &placeholder);
         if ((placeholder == 'q') || (placeholder == 'Q')){
             break;
