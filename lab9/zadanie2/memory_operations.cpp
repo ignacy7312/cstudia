@@ -3,7 +3,8 @@
 
 
 int * get_left_fence_address(memory_sector_t * memory_sector){
-    return &(memory_sector->l_fence);
+    return &(memory_sector->l_fence); //-> operator dostępu do składowej
+    //return &((*memory_sector).l_fence) ewentualnie tak. tyle nawiasów wynika z kolejności pierwszeństwa operatorów
     }
 
 int * get_right_fence_address(memory_sector_t * memory_sector){

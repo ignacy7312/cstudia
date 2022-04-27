@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <math.h>
 #include "triangle.h"
 
 
@@ -15,6 +14,7 @@ bool isTriangle(Point_t points[]){
 
     bool isTriangle;
     isTriangle = (distance(points[0], points[1]) == 0 || distance(points[0], points[2]) == 0 || distance(points[1], points[2]) == 0) ? false : true;
+    isTriangle = (sizeof(points)/sizeof(Point_t) == 3) ? true : false;
     //more checks...
     return isTriangle;
 }
@@ -29,13 +29,7 @@ bool isRightTriangle(Point_t points[]){
     distAC = distance(points[0], points[2]);
     distBC = distance(points[1], points[2]);
 
-    if (distAB  + distAC  == distBC )
-        return true;
-    else if (distAB  + distBC  == distAC )
-        return true;
-    else if (distAC  + distBC  == distAB )
-        return true;
-    else 
-        return false;
+    return ((distAB  + distAC  == distBC) || (distAB  + distBC  == distAC) || (distAC  + distBC  == distAB)) ? true : false;
+
 
 }

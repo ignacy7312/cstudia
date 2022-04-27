@@ -14,6 +14,7 @@ int main(void){
     scanf("%lf%lf", &(first.x), &(first.y));
     scanf("%lf%lf", &second.x, &second.y);
     scanf("%lf%lf", &third.x, &third.y);
+    printf("Points entered: (%.2lf, %.2lf) (%.2lf, %.2lf) (%.2lf, %.2lf)\n", first.x, first.y, second.x, second.y, third.x, third.y);
     Point_t points[3] = {first, second, third};
 
     

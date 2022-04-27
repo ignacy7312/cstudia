@@ -3,7 +3,8 @@
 
 
 int * get_left_fence_address(memory_sector_t * memory_sector){
-    return &(memory_sector->l_fence);
+    return &(memory_sector->l_fence); //-> operator dostępu do składowej
+    //return &((*memory_sector).l_fence) ewentualnie tak. tyle nawiasów wynika z kolejności pierwszeństwa operatorów
     }
 
 int * get_right_fence_address(memory_sector_t * memory_sector){
@@ -26,10 +27,8 @@ address_status_t validate_address(memory_sector_t * memory_sector, const int * a
     bool bNoError;
     bNoError = (address <= get_right_fence_address(memory_sector) && address >= get_left_fence_address(memory_sector)) ? true : false;
     
-    if(bNoError)
-        return address_status::NO_ERROR;
-    else 
-        return address_status::ADDRESS_OUT_OF_RANGE; 
+    return (bNoError) ? address_status::NO_ERROR : address_status::ADDRESS_OUT_OF_RANGE;
+
 }
 
 address_status_t read_memory(memory_sector_t * memory_sector, const int * address, int * buffer){
@@ -55,7 +54,7 @@ address_status_t write_memory(memory_sector_t * memory_sector, int * address, in
 address_status_t copy_memory(memory_sector_t * memory_sector, int * destination, int * source, size_t size){
 
     if(validate_address(memory_sector, destination) == address_status::NO_ERROR){
-        memcpy(destination, source, size);
+        memcpy(destination, source, size);  //można jeszcze funckją memmove() która potrzebuje dodatkowego bufora
         return address_status::NO_ERROR;
     } else {
         return address_status::ADDRESS_OUT_OF_RANGE;
