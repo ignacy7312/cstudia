@@ -23,7 +23,7 @@ void merge(int * array, unsigned int lo, unsigned int mi, unsigned int hi){
     unsigned int loIterator = lo;
     unsigned int hiIterator = mi + 1;
     
-    // Scalaj tablice do tablicy wynikowej az do wyczerpania elementow jednej z podtabli
+    // Scalaj tablice do tablicy wynikowej az do wyczerpania elementow jednej z podtablic
     while (loIterator <= mi && hiIterator <= hi){
         if (arrayCopy[loIterator] <= arrayCopy[hiIterator])
             array[iterator++] = arrayCopy[loIterator++];

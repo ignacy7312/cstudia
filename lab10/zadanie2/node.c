@@ -1,10 +1,81 @@
+#include <stdio.h>
 #include "node.h"
 
+void printList(Node_t * root){
+    if (root != NULL){
+        int index = 0;
+        while( root != NULL){
+            printf("Element nr: %d, wartosc: %d\n", index, root->head);
+            index++;
+            root = root->tail;
+        }
+    } else{
+        printf("It's empty/nonexistent");
+    }
+}
+int countElements(Node_t * root){
+    int counter = 0;
+    if (root != NULL){
+        while(root != NULL){
+            counter++;
+            root = root->tail;
+        }
+    }
+    return counter;
+}
 
-void removeByIndex(Node_t ** root, unsigned int index);
+
+void removeByIndex(Node_t ** root, unsigned int index){
+    if (root != NULL && *root != NULL && index < countElements(*root) && index >= 0){
+        Node_t * currentNode = *root;
+        Node_t * toBeRemoved;
+        Node_t * oneBefore;
+        int iterator = 0;
+
+        if (index == 0){
+            *root = (*root)->tail;
+            free(currentNode);
+        } 
+        else if (index == 1){
+            toBeRemoved = currentNode->tail;
+            currentNode->tail = toBeRemoved->tail;
+            free(toBeRemoved);
+        }
+        else if (index >= 2){
+            while(iterator < index){
+                //przejscie do wybranego elemenetu listy
+                currentNode = currentNode->tail;
+                if (iterator == index - 2) //zapisanie przedostatniego
+                    oneBefore = currentNode;
+                iterator++;
+            }
+            toBeRemoved = currentNode;
+            (oneBefore->tail) = toBeRemoved->tail; //element przed tym do usunięcia wskazuje na adres po elemencie do usunięcia
+            free(toBeRemoved);
+        }    
+            
+    } else { //jezeli lista ma - elementów albo indeks się nie zgadza
+        printf("It either does not exist or provided index is out of range\n");
+    }
+}
 
 
-
+bool popFront(Node_t ** root, int * buffer){
+    bool result = false;
+    if (root != NULL && *root != NULL && buffer != NULL){
+        //odczytaj wartosc pierszego elementu
+        *buffer = (*root)->head;
+        //wez drugi element z listy
+        Node_t * next = (*root)->tail;
+        //usun pierwszy element
+        free(*root);
+        //ustaw poczatek listy na drugi element
+        *root = next;
+        //sukces
+        result = true;
+    }
+    return result;
+}
 
 
 
@@ -74,19 +145,3 @@ bool popBack(Node_t ** root, int * buffer){
 }
 
 
-bool popFront(Node_t ** root, int * buffer){
-    bool result = false;
-    if (root != NULL && *root != NULL && buffer != NULL){
-        //odczytaj wartosc pierszego elementu
-        *buffer = (*root)->head;
-        //wez drugi element z listy
-        Node_t * next = (*root)->tail;
-        //usun pierwszy element
-        free(*root);
-        //ustaw poczatek listy na drugi element
-        *root = next;
-        //sukces
-        result = true;
-    }
-    return result;
-}

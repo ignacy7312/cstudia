@@ -12,4 +12,6 @@ void pushBack(Node_t * root, int value);
 void pushFront(Node_t ** root, int value);
 bool popBack(Node_t ** root, int * buffer);
 bool popFront(Node_t ** root, int * buffer);
+void printList(Node_t * root);
 void removeByIndex(Node_t ** root, unsigned int index);
+int countElements(Node_t * root);

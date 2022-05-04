@@ -2,22 +2,39 @@
 #include "node.h"
 
 int main(void){
-
-
+    int value;
+    
     Node_t * root = createNode(112, NULL);
     pushBack(root, 17);
-    pushFront(&root, 14);
+    pushBack(root, 18);
+    pushBack(root, 19);
+    pushBack(root, 20);
+    pushBack(root, 21);
+    pushFront(&root, 16);
+    printf("%d\n", countElements(root));
+    printList(root);
     
 
-    int value;
-    bool result;
+    Node_t * rootEmpty = createNode(11, NULL);
+
+    
+    /*bool result;
     result = popFront(&root, &value);
     if (result)
         printf("Popped value: %d\n", value);
     result = popBack(&root, &value);
     if (result)
         printf("Popped value: %d\n", value);
+    printList(root);
+    */
 
+    removeByIndex(&root, 0);
+    removeByIndex(&root, 3);
+    removeByIndex(&rootEmpty, 5);
+    removeByIndex(&rootEmpty, 4);
+
+    
+    printList(root);
 
     return 0;
 }
