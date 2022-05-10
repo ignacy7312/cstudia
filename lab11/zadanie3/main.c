@@ -1,6 +1,11 @@
 #include <stdio.h>
 
 #include "dispatcher.h"
+#include "parser.h"
+#include "list.h"
+#include "predicate.h"
+#include "comparators.h"
+
 
 int main(int argc, char ** argv) {
 	if (argc > 1) {

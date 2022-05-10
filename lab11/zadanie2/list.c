@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include "list.h"
+#include "comparators.h"
 
 static Node_t * createNode(int head) {
 	Node_t * node = (Node_t *) malloc(sizeof(node));
@@ -26,4 +27,44 @@ void printList(Node_t * root) {
 		printf("%d\n", currentNode->head);
 		currentNode = currentNode->tail;
 	}
+}
+
+Node_t * createList(unsigned int nodeCount, ...){
+
+	va_list args;
+	va_start(args, nodeCount);
+	Node_t * root;
+	Node_t * currentNode;
+	for(int i = 0; i < nodeCount; i++){
+		
+		if (i == 0){
+			currentNode = createNode(va_arg(args, int));
+			root = currentNode;
+		} else
+			push(currentNode, va_arg(args, int));
+	}
+
+	va_end(args);
+	return root;
+}
+
+void removeIf(Node_t ** root, Predicate predicate, int toCompare){
+	Node_t ** oneBefore = root;
+	Node_t * toBeRemoved = *root;
+	
+	while(toBeRemoved != NULL){
+		if (!predicate(toBeRemoved->head, toCompare)){
+			oneBefore = &(*oneBefore)->tail;
+			toBeRemoved = toBeRemoved->tail;
+			continue;
+		} 
+		else if (predicate(toBeRemoved->head, toCompare)) {
+			(*oneBefore) = toBeRemoved->tail;
+			free(toBeRemoved);
+			break;
+		} 
+	}
+	if(toBeRemoved == NULL)
+		printf("no such element\n");
+
 }

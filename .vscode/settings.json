@@ -105,6 +105,9 @@
         "typeindex": "cpp",
         "valarray": "cpp",
         "variant": "cpp",
-        "math.h": "c"
+        "math.h": "c",
+        "node.h": "c",
+        "stdio.h": "c",
+        "comparators.h": "c"
     }
 }

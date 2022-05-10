@@ -32,5 +32,18 @@ Node_t * createList(unsigned int nodeCount, ...){
 
 	va_list args;
 	va_start(args, nodeCount);
+	Node_t * root;
+	Node_t * currentNode;
+	for(int i = 0; i < nodeCount; i++){
+		
+		if (i == 0){
+			currentNode = createNode(va_arg(args, int));
+			root = currentNode;
+		} else
+			push(currentNode, va_arg(args, int));
 	}
+
+	va_end(args);
+	return root;
 }
+
