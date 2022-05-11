@@ -4,6 +4,7 @@
 
 #include "list.h"
 #include "comparators.h"
+#include "predicate.h"
 
 static Node_t * createNode(int head) {
 	Node_t * node = (Node_t *) malloc(sizeof(node));
@@ -49,22 +50,26 @@ Node_t * createList(unsigned int nodeCount, ...){
 }
 
 void removeIf(Node_t ** root, Predicate predicate, int toCompare){
-	Node_t ** oneBefore = root;
-	Node_t * toBeRemoved = *root;
+	Node_t ** oneBefore = root; //elemenet przed tym do usunięcia
+	Node_t * toBeRemoved = *root; //element do usunięcia
 	
-	while(toBeRemoved != NULL){
-		if (!predicate(toBeRemoved->head, toCompare)){
-			oneBefore = &(*oneBefore)->tail;
-			toBeRemoved = toBeRemoved->tail;
+	while(toBeRemoved != NULL){ //przejscie przez listę
+		if (!predicate(toBeRemoved->head, toCompare)){ 
+			//jeżeli kryterium porównawcze nie jest spełnione
+			//przejście po kolei przez elementy listy
+			oneBefore = &(*oneBefore)->tail; 
+			toBeRemoved = toBeRemoved->tail; 
 			continue;
 		} 
 		else if (predicate(toBeRemoved->head, toCompare)) {
+			//jeżeli kryterium porównawcze jest spełnione
+			//element przed tym do usunięcia staje się elementem następnym po tym do usunięcia
 			(*oneBefore) = toBeRemoved->tail;
 			free(toBeRemoved);
 			break;
 		} 
 	}
-	if(toBeRemoved == NULL)
+	if(toBeRemoved == NULL)//jeżeli żaden element nie spełnia kryterium
 		printf("no such element\n");
 
 }

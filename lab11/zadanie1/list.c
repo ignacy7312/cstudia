@@ -30,10 +30,12 @@ void printList(Node_t * root) {
 
 Node_t * createList(unsigned int nodeCount, ...){
 
-	va_list args;
-	va_start(args, nodeCount);
-	Node_t * root;
+	Node_t * root = NULL; //jezeli zero argumentow to zwroci sie NULL, a nie losowy wskaznik
 	Node_t * currentNode;
+	
+
+	va_list args;
+	va_start(args, nodeCount);//dostęp do listy argumentów
 	for(int i = 0; i < nodeCount; i++){
 		
 		if (i == 0){
@@ -43,7 +45,7 @@ Node_t * createList(unsigned int nodeCount, ...){
 			push(currentNode, va_arg(args, int));
 	}
 
-	va_end(args);
+	va_end(args); //kończy iterowanie po liście argumentów
 	return root;
 }
 
