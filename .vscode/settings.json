@@ -108,6 +108,7 @@
         "math.h": "c",
         "node.h": "c",
         "stdio.h": "c",
-        "comparators.h": "c"
+        "comparators.h": "c",
+        "stdbool.h": "c"
     }
 }
