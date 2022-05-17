@@ -1,2 +1,2 @@
 default:
-	gcc main.c getnum.c statemachine.c -o main
+	gcc main.c statemachine.c -o main

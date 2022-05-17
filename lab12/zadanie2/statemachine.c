@@ -1,79 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "statemachine.h"
-#include "getnum.h"
 
-//handlers:
-void add(int * result, int num){
-    *result += num;
+
+//executors
+void getNum(int * result, int * num){
+    scanf("%d", num);
+}
+void add(int * result, int * num){
+    *result += (*num);
 }
 
-void multiply(int * result, int num){
-    *result *= num;
+void mul(int * result, int * num){
+    *result *= (*num);
 }
-
-
-//obsługa zdarzenia INPUT_POS w stanie ADD
-StateDescriptor_t executeADD(int * result, int number, EventDescriptor_t * event){
-    add(result, number);
-    *event = CHECK;
-    return INPUT;
-};
-
-//obsługa zdarzenia INPUT_NEG w stanie MUL
-StateDescriptor_t executeMUL(int * result, int number, EventDescriptor_t * event){
-    multiply(result, number);
-    *event = CHECK;
-    return INPUT;
+void printstate(int * result, int * num){
+    printf("result: %d, num: %d\n", *result, *num);
 }
-
-//obsługa zdarzenia CHECK w stanie INPUT
-StateDescriptor_t checkNumber(int * result, int previous, EventDescriptor_t * event){
-    if (previous > 0){
-        *event = POSITIVE;
-        return ADD;
+//predefiniowane stany
+static const State_t CHECKING = {checking, printstate};
+static const State_t ADD = {ADDchangeToCheck, getNum};
+static const State_t MULTIPLY = {MULchangeToCheck, getNum};
+//handlers
+const State_t * checking(EventDescriptor_t event, int * result, int * num){
+    if (*num > 0){
+        return &ADD;
     }
 
-    else if (previous < 0){
-        *event = NEGATIVE;
-        return MUL;
+    else if (*num < 0){
+        return &MULTIPLY;
     }
     else
         exit(EXIT_SUCCESS);
 }
 
-void handleEvent(EventDescriptor_t * event){
-    static const State_t StateMachine[] = {{ADD, POSITIVE, executeADD}, {MUL, NEGATIVE, executeMUL}, {INPUT, CHECK, checkNumber}, {INPUT, CHECK, checkNumber}};
-    static int result = 1;
-    static int previous = 0;
-    static int number, prpr; //prpr tylko zeby printowac poprzedni numer
-    
-    static StateDescriptor_t currentState = ADD;
-    //static EventDescriptor_t * event = &event;
-    
-    for (int i = 0; i < sizeof(StateMachine)/sizeof(State_t); i++){
-        
-        if (StateMachine[i].stateDescriptor == currentState && StateMachine[i].eventDescriptor == *event){
-        
-            if(StateMachine[i].stateDescriptor == INPUT){
-                currentState = StateMachine[i].handler(&result, previous, event);
-                printf("previous is %d, number is: %d, result is: %d\n", prpr, number, result);
-            }
-            else if (StateMachine[i].stateDescriptor != INPUT) {
-                getNum(&number);
-                currentState = StateMachine[i].handler(&result, number, event);
-            }
-                
-            prpr = previous;
-            previous = number;
-            break;
-        }
-    } 
-
+const State_t * ADDchangeToCheck(EventDescriptor_t event, int * result, int * num){
+    add(result, num);
+    return &CHECKING;
 }
+
+const State_t * MULchangeToCheck(EventDescriptor_t event, int * result, int * num){
+    mul(result, num);
+    return &CHECKING;
+}
+
+void handleEvent(EventDescriptor_t event){
+    static int result = 1;
+    static int number;
+    
+    static const State_t * state = &ADD;
+    state->executor(&result, &number);
+    state = state->handler(event, &result, &number);
+    
+}
+
 void execute(){
     EventDescriptor_t event = POSITIVE;
-    
     while(1){
-        handleEvent(&event);
+        handleEvent(event);
     }
-
 }
+

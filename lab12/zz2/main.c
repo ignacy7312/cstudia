@@ -1,4 +1,5 @@
-#include "sminaczej.h"
+#include "getnum.h"
+#include "statemachine.h"
 
 int main(void){
 
