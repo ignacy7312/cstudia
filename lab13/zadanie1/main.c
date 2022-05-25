@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "mu.h"
+#include "math_utils.h"
 
 int main(void){
 

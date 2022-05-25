@@ -1,0 +1,21 @@
+bubbleSort mergeSort quickSort
+Random order:
+0 0 0
+Worst-case scenario:
+0 0 0
+Random order:
+0 0 0
+Worst-case scenario:
+0 0 0
+Random order:
+3 0 1
+Worst-case scenario:
+3 1 42
+Random order:
+577 20 2
+Worst-case scenario:
+623 14 418
+Random order:
+2159 77 4
+Worst-case scenario:
+1631 64 1204

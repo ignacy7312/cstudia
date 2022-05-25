@@ -1,2 +1,2 @@
 default:
-	g++ -o main main.cpp  utils.cpp libsort.dll
+	g++ -o mainSTATYCZNY main.cpp  utils.cpp libsort.lib

@@ -9,10 +9,6 @@ bool isGreater(double a, double b){
     return a > b;
 }
 
-void saveToFile(std::fstream file, double durBub, double durMer, double durQs){
-    file << (std::noskipws) << durBub << ' ' << durMer << ' ' << durQs << '\n';
-}
-
 
 
 double * generateRandomizedArray(int size, bool decider){

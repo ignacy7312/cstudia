@@ -1,4 +1,4 @@
-#include "mu.h"
+#include "math_utils.h"
 
 int gcd(int x, int y){
     if(y == 0)
