@@ -57,7 +57,7 @@ void removeByIndex(Node_t ** root, unsigned int index){
         }    
             
     } else { //jezeli lista ma - elementów albo indeks się nie zgadza
-        std::cout <<"It either does not exist or provided index is out of range\n";
+        std::cout <<"It either does not exist or provided index is out of range";
          
     }
 }
