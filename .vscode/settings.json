@@ -110,6 +110,7 @@
         "stdio.h": "c",
         "comparators.h": "c",
         "stdbool.h": "c",
-        "*.dll": "c"
+        "*.dll": "c",
+        "spanstream": "cpp"
     }
 }
