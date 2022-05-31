@@ -8,7 +8,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # Ten program zosta� zbudowany dla i386-pc-mingw32
  
 
-# Baza danych Make, wy�wietlana na Tue May 31 09:25:04 2022
+# Baza danych Make, wy�wietlana na Tue May 31 09:24:42 2022
 
 # Zmienne
 
@@ -34,9 +34,8 @@ HOMEDRIVE = C:
 @F = $(notdir $@)
 # automatyczna
 ^D = $(patsubst %/,%,$(dir $^))
-# make 
-file
-CURDIR := c:/1CCPPSTUDIAGITODRAZU/cstudia
+# makefile
+CURDIR := c:/1CCPPSTUDIAGITODRAZU/cstudia/lab14
 # domy�lna
 SHELL := sh.exe
 # �rodowiskowa
@@ -64,9 +63,9 @@ PROGRAMW6432 = C:\Program Files
 # �rodowiskowa
 PROGRAMDATA = C:\ProgramData
 # �rodowiskowa
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-b87670ad-0441-446e-9df0-43d81fe139d3-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-d95355a7-7f34-4292-9362-1e5771c02531-sock
 # �rodowiskowa
-VSCODE_CWD = C:\1CCPPSTUDIAGITODRAZU
+VSCODE_CWD = C:\Users\Ignacy\AppData\Local\Programs\Microsoft VS Code
 # �rodowiskowa
 DDCPATH64 = ;C:\Program Files\Common Files\Datawatch\Drivers\7.1.5\jre\bin;C:\Program Files\Common Files\Datawatch\Drivers\7.1.5\jre\bin\server
 # �rodowiskowa
@@ -94,7 +93,7 @@ ELECTRON_RUN_AS_NODE = 1
 # automatyczna
 %F = $(notdir $%)
 # �rodowiskowa
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_20580_VHQIOBEKAECKPYCT
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_17864_JRUMMKELSXBDLWQT
 # �rodowiskowa
 VSCODE_PIPE_LOGGING = true
 # �rodowiskowa
@@ -106,7 +105,8 @@ DRIVERDATA = C:\Windows\System32\Drivers\DriverData
 # �rodowiskowa
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # �rodowiskowa
-USERNAME = Ignacy
+USE 
+RNAME = Ignacy
 # �rodowiskowa
 PUBLIC = C:\Users\Public
 # �rodowiskowa
@@ -208,12 +208,11 @@ LANG = C
 # �rodowiskowa
 PROCESSOR_LEVEL = 6
 # �rodowiskowa
-FPS_BROWSER_APP_PROFILE_STRING = Internet Explore 
-r
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # �rodowiskowa
 PT7HOME = C:\Program Files (x86)\Cisco Packet Tracer 7.2.2
 # �rodowiskowa
-VSCODE_PID = 20580
+VSCODE_PID = 17864
 # �rodowiskowa
 USERDOMAIN_ROAMINGPROFILE = Ignacy-Komputer
 # statystyki tablic haszuj�cych ustawionych zmiennych:
@@ -230,7 +229,7 @@ USERDOMAIN_ROAMINGPROFILE = Ignacy-Komputer
 # C:\Program Files\Common Files\Datawatch\Drivers\7.1.5\jre\bin (klucz C:/Program Files/Common Files/Datawatch/Drivers/7.1.5/jre/bin, czas modyfikacji 1614031669): 95 pliki, nie niemo�liwo�ci.
 # C:\Windows\System32\WindowsPowerShell\v1.0\ (klucz C:/Windows/System32/WindowsPowerShell/v1.0/, czas modyfikacji 1602863388): 30 pliki, nie niemo�liwo�ci.
 # C:\Windows\System32\Wbem (klucz C:/Windows/System32/Wbem, czas modyfikacji 1646983391): 155 pliki, nie niemo�liwo�ci.
-# . (klucz c:/1CCPPSTUDIAGITODRAZU/cstudia, czas modyfikacji 1653682070): 22 pliki, nie niemo�liwo�ci.
+# . (klucz c:/1CCPPSTUDIAGITODRAZU/cstudia/lab14, czas modyfikacji 1653981874): 8 pliki, nie niemo�liwo�ci.
 # C:\Program Files\Calibre2\ (klucz C:/Program Files/Calibre2/, czas modyfikacji 1475353729): 38 pliki, nie niemo�liwo�ci.
 # C:\opencv\opencv450\opencv\build\x64\vc15\bin (klucz C:/opencv/opencv450/opencv/build/x64/vc15/bin, czas modyfikacji 1646868586): 14 pliki, nie niemo�liwo�ci.
 # C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common (klucz C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common, czas modyfikacji 1533749046): 10 pliki, nie niemo�liwo�ci.
@@ -264,10 +263,12 @@ USERDOMAIN_ROAMINGPROFILE = Ignacy-Komputer
 # C:\intelFPGA\21.1\questa_fse\win64 (klucz C:/intelFPGA/21.1/questa_fse/win64, czas modyfikacji 1645100122): 191 pliki, nie niemo�liwo�ci.
 # C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT (klucz C:/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT, czas modyfikacji 1408029350): 10 pliki, nie niemo�liwo�ci.
 # C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL (klucz C:/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL, czas modyfikacji 1408029350): 7 pliki, nie niemo�liwo�ci.
-# C:\Program Files (x86)\GnuWin32\bin (klucz C:/Pr 
-ogram Files (x86)/GnuWin32/bin, czas modyfikacji 1653934669): 5 pliki, nie niemo�liwo�ci.
+# C:\P 
+make.exe: *** Brak regu� do wykonania obiektu `all'. Stop.
 
-# 4446 pliki, nie niemo�liwo�ci w 40 katalogach.
+rogram Files (x86)\GnuWin32\bin (klucz C:/Program Files (x86)/GnuWin32/bin, czas modyfikacji 1653934669): 5 pliki, nie niemo�liwo�ci.
+
+# 4432 pliki, nie niemo�liwo�ci w 40 katalogach.
 
 # Regu�y stadardowe
 
@@ -317,8 +318,7 @@ GNUmakefile:
 # Wype�nienie=0/32=0%, Przehaszowania=0, Kolizje=0/0=0%
 
 # statystyki tablic haszuj�cych plik�w:
-# Wype�nienie 
-=5/1024=0%, Przehaszowania=0, Kolizje=0/16=0%
+# Wype�nienie=5/1024=0%, Przehaszowania=0, Kolizje=0/16=0%
 # �cie�ki przeszukiwania VPATH
 
 # Brak �cie�ek przeszukiwania `vpath'
@@ -330,8 +330,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Zako�czono tworzenie bazy danych Make na Tue May 31 09:25:04 2022
+# Zako�czono tworzenie bazy danych Make na Tue May 31 09:24:42 2022
 
  
-make.exe: *** Brak regu� do wykonania obiektu `all'. Stop.
-

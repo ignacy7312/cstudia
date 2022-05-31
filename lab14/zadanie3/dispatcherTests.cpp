@@ -1,5 +1,10 @@
 #include "gtest.h"
 #include "dispatcher.h"
+#include "list.h"
+#include "comparators.h"
+#include "parser.h"
+#include "predicate.h"
+
 
 
 const char * RemovalErrorMessage = "no such element";
@@ -16,39 +21,51 @@ TEST(CorrectlyParsedCommandsAndOkList, Equal){
     dispatch(&root, command);
     EXPECT_EQ(root->tail->head, 6);
     
-    free(root);
+    delete root;
     
 }
-/*
+
 TEST(CorrectlyParsedCommandsAndOkList, Greater){
     const unsigned int nodeCount = 5;
-	Node_t * root2 = createList(nodeCount, 2, 4, 6, 8, 10);
+	Node_t * root = createList(nodeCount, 2, 4, 6, 8, 10);
 
     command = parseCommand("isGreater 8");
 
-    dispatch(&root2, command);
-    EXPECT_TRUE(root2->tail->tail->tail->tail == NULL);
+    dispatch(&root, command);
+    EXPECT_TRUE(root->tail->tail->tail->tail == NULL);
     
-    free(root2);
+    delete root;
 }
 
 
 TEST(CorrectlyParsedCommandsAndOkList, Less){
     const unsigned int nodeCount = 5;
-	Node_t * root3 = createList(nodeCount, 2, 4, 6, 8, 10);
+	Node_t * root = createList(nodeCount, 2, 4, 6, 8, 10);
     
     command = parseCommand("isLess 6");
 
-    dispatch(&root3, command);
-    EXPECT_EQ(root3->head, 4);
+    dispatch(&root, command);
+    EXPECT_EQ(root->head, 4);
     
-    free(root3);
+    delete root;
 }
-*/
+
+TEST(CorrectlyParsedCommandsAndOkList, ConditionNotMetGreater){
+    const unsigned int nodeCount = 5;
+	Node_t * root = createList(nodeCount, 2, 4, 6, 8, 10);
+    command = parseCommand("isGreater 10");
+
+    testing::internal::CaptureStdout();
+    dispatch(&root, command);
+    std::string output1 = testing::internal::GetCapturedStdout();
+    EXPECT_STREQ(output1.c_str(), RemovalErrorMessage); 
+    
+    delete root;
+}
 
 
 
-TEST(WrongIndexingCorrectCommands, FalsePredicate){
+TEST(CorrectlyParsedCommandsAndOkList, ConditionNotMetLess){
     const unsigned int nodeCount = 5;
 	Node_t * root = createList(nodeCount, 2, 4, 6, 8, 10);
     
@@ -57,34 +74,26 @@ TEST(WrongIndexingCorrectCommands, FalsePredicate){
     
     testing::internal::CaptureStdout();
     dispatch(&root, command);
-    //removeIf(&root, isLess, command.argument);
     std::string output1 = testing::internal::GetCapturedStdout();
     EXPECT_STREQ(output1.c_str(), RemovalErrorMessage); 
     
     
-    free(root);
+    delete root;
 }
-/*
+
 
 TEST(CorrectlyParsedCommandsAndWrongList, ThreeComparators){
-    //creating and emptying a list
-    const unsigned int nodeCount = 1;
-	Node_t * root = createList(nodeCount, 2);
-    removeIf(&root, isEqual, 2);
+    
+    
+    Node_t * root = NULL;
+    command = parseCommand("isEqual 2");
 
     testing::internal::CaptureStdout();
-    dispatch(&root, parseCommand("isEqual 2"));
+    dispatch(&root, command);
     std::string output1 = testing::internal::GetCapturedStdout();
     EXPECT_STREQ(output1.c_str(), RemovalErrorMessage); 
-    dispatch(&root, parseCommand("isGreater 4"));
-    std::string output2 = testing::internal::GetCapturedStdout();
-    EXPECT_STREQ(output2.c_str(), RemovalErrorMessage); 
 
-    dispatch(&root, parseCommand("isLess 10"));
-    std::string output3 = testing::internal::GetCapturedStdout();
-    EXPECT_STREQ(output3.c_str(), RemovalErrorMessage); 
-
-    free(root);
+    
 }
 
 
@@ -93,28 +102,34 @@ TEST(IncorrectInput, NonexistentCommand){
     const unsigned int nodeCount = 5;
 	Node_t * root = createList(nodeCount, 2, 4, 6, 8, 10);
     
-    dispatch(&root, parseCommand("isDasda 8"));
+    command = parseCommand("isDasda 8");
+
+    testing::internal::CaptureStdout();
+    dispatch(&root, command);
     std::string output = testing::internal::GetCapturedStdout();
+    
     EXPECT_STREQ(output.c_str(), DispatcherErrorMessage); 
 
-    dispatch(&root, parseCommand("asdas"));
+
+    command = parseCommand("asdasdasd");
+    testing::internal::CaptureStdout();
+    dispatch(&root, command);
     std::string output2 = testing::internal::GetCapturedStdout();
+    
     EXPECT_STREQ(output2.c_str(), DispatcherErrorMessage); 
 
-    free(root);
+    delete root;
 }
-
 
 
 TEST(IncorrectInput, NonexistentCommandAndEmptyList){
-    const unsigned int nodeCount = 1;
-	Node_t * root = createList(nodeCount, 2);
-    removeIf(&root, isEqual, 2);
-    
-    dispatch(&root, parseCommand("isDasda 8"));
+	
+    Node_t * root = NULL;
+    command = parseCommand("asdvcxbsgfdgdf");
+    testing::internal::CaptureStdout();
+    dispatch(&root, command);
     std::string output = testing::internal::GetCapturedStdout();
     EXPECT_STREQ(output.c_str(), DispatcherErrorMessage); 
-    free(root);
+
 }
 
-*/

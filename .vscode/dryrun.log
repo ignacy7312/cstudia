@@ -1,4 +1,7 @@
-make.exe --dry-run --keep-going --print-directory
-'make.exe' is not recognized as an internal or external command,
-operable program or batch file.
+make.exe --dry-run --always-make --keep-going --print-directory
+make.exe: Wej�cie do katalogu `c:/1CCPPSTUDIAGITODRAZU/cstudia'
+ 
+make.exe: Opuszczenie katalogu `c:/1CCPPSTUDIAGITODRAZU/cstudia'
+ 
+make.exe: *** Nie podano obiekt�w i nie znaleziono makefile. Stop.
 

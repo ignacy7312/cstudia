@@ -9,7 +9,7 @@
 #include "gtest.h"
 
 static Node_t * createNode(int head) {
-	Node_t * node = (Node_t *) malloc(sizeof(node));
+	Node_t * node = new Node_t;
 	node->head = head;
 	node->tail = NULL;
 	return node;
@@ -63,7 +63,7 @@ void removeIf(Node_t ** root, Predicate predicate, int toCompare){
 		} 
 		else if (predicate(toBeRemoved->head, toCompare)) {
 			(*oneBefore) = toBeRemoved->tail;
-			free(toBeRemoved);
+			delete toBeRemoved;
 			break;
 		} 
 	}

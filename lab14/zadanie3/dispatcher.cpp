@@ -17,10 +17,7 @@ typedef struct Comparator {
 //funckja dostaje strukturę parsedCommand - zawierającą funkcję do wywołania i argument 
 
 void dispatch(Node_t ** root, ParsedCommand_t parsedCommand){
-    
-    //mapowanie nazw funkcji na wskaźniki funkcyjne - leniwa inicjalizacja
-    //dzięki static tablica będzie widziana między kolejnymi wywołaniami funkcji (będzie żyła tak długo jak program, a nie tylko czas działania funkcji, w której jest określona)
-    //przez to zostanie zaincjalizowana tylko raz - oszczędność czasu i pamięci 
+    bool rightCommand = false;
     static const Comparator_t comparators[] = {{"isEqual", isEqual}, {"isGreater", isGreater},{"isLess", isLess}};
 
     for(unsigned int i = 0; i < sizeof(comparators)/sizeof(Comparator_t); i++){
@@ -29,9 +26,11 @@ void dispatch(Node_t ** root, ParsedCommand_t parsedCommand){
             //jeżeli instrukcja z polecenia jest taka sama jak z tablicy
             removeIf(root, comparators[i].predicate, parsedCommand.argument);
             //instrukcja występuje tylko raz - bez sensu iterowanie po wszystkim jak już się wywoła
+            rightCommand = true;
             break; 
         }
     }
-    //std::cout << "Nonexistent command";
+    if(!rightCommand)
+        std::cout << "Nonexistent command";
     
 }
