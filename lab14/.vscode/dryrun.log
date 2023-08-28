@@ -1,7 +1,0 @@
-make.exe --dry-run --always-make --keep-going --print-directory
-make.exe: Wej�cie do katalogu `c:/1CCPPSTUDIAGITODRAZU/cstudia/lab14'
- 
-make.exe: *** Nie podano obiekt�w i nie znaleziono makefile. Stop.
-
-make.exe: Opuszczenie katalogu `c:/1CCPPSTUDIAGITODRAZU/cstudia/lab14'
- 

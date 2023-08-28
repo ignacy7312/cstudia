@@ -7,8 +7,8 @@
 int main(void){
 
     time_t t;
-    srand((unsigned) time(&t)* 10000000);   //trzeba bardzo zwiekszyc ziarno, zeby liczby losowane nie byly podobne do siebie, 
-                                            //skoro to opiera sie na sekundach itp
+    srand(NULL);   
+                                            
     unsigned int p,q,e,tocjent;
     int gcd1, gcd2;
     p = 0;

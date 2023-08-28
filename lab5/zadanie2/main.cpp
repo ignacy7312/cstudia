@@ -1,4 +1,4 @@
-//symbole debudowe - kompilacja z -g; rozp debugowania GDB nazwa
+//symbole debugowe - kompilacja z -g; rozp debugowania GDB nazwa
 
 #include <iostream>
 #include "fib.h"
